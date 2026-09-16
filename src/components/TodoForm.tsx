@@ -9,8 +9,10 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    onAdd(text)
-    setText('')
+    if (text.trim()) {
+      onAdd(text)
+      setText('')
+    }
   }
 
   return (
